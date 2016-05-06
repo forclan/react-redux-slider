@@ -1,14 +1,14 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "react-redux-slider",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "slider use react and redux",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaearon/react-hot-boilerplate.git"
+    "url": "https://github.com/forclan/react-redux-slider"
   },
   "keywords": [
     "react",
@@ -16,17 +16,16 @@
     "boilerplate",
     "hot",
     "reload",
-    "hmr",
-    "live",
     "edit",
-    "webpack"
+    "webpack",
+    "slider",
+    "redux"
   ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
+  "author": "forclan (http://github.com/forclan)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
   },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
+  "homepage": "https://github.com/forclan/react-redux-slider",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",
