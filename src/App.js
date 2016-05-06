@@ -18,11 +18,9 @@ function mapDispatchToProps(dispatch) {
 
 class App extends Component {
   componentDidMount() {
-    // console.log('props autoSwitch in MOunt', this.props.autoSwitch);
-    // console.log('add mounted');
       setInterval(() => {
       // console.log('interval');
-      console.log(Date.now());
+      // console.log(Date.now());
       this.props.autoSwitch();
     }, 2000);
   }
@@ -30,7 +28,7 @@ class App extends Component {
     // console.log('app render');
     let {url, imgClick, imgNext, imgPrevious, autoSwitch} = this.props;
     // this.props.autoSwitch = autoSwitch;
-    console.log('props autoSwitch', this.props.autoSwitch);
+    // console.log('props autoSwitch', this.props.autoSwitch);
     return (
       <div>
         <ul>

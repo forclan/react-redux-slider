@@ -12,7 +12,7 @@ export default function imgReduce(state = {
   width: 400,
   height: 400
 }, action) {
-  console.log('action is', action.type);
+  // console.log('action is', action.type);
   let len = state.urls.length;
   switch (action.type) {
     case IMG_CLICK:
