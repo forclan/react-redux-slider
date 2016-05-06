@@ -1,7 +1,8 @@
 import {
   IMG_CLICK,
   IMG_NEXT,
-  IMG_PREVIOUS
+  IMG_PREVIOUS,
+  AUTO_SWITCH,
 } from '../actions/sliderActions';
 import urls from './urls';
 
@@ -30,6 +31,11 @@ export default function imgReduce(state = {
       return {
         urls: state.urls,
         index: nextIdx < 0 ? len - 1 : nextIdx
+      }
+    case AUTO_SWITCH:
+      return {
+        urls: state.urls,
+        index: state.index + 1 > len - 1 ? 0 : state.index + 1
       }
     default:
       return state;

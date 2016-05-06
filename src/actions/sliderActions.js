@@ -1,6 +1,7 @@
 export const IMG_CLICK = 'IMG_CLICK';
 export const IMG_NEXT = 'IMG_NEXT';
 export const IMG_PREVIOUS = 'IMG_PREVIOUS';
+export const AUTO_SWITCH = 'AUTO_SWITCH';
 
 export const imgClick = (index) =>  {
   console.log('imgClicked');
@@ -21,4 +22,11 @@ export const imgPrevious = () => {
   return {
     type: IMG_PREVIOUS
   }
+}
+
+export const autoSwitch = () => {
+  // console.log('autoSwitch');
+  return {
+    type: AUTO_SWITCH
+  } 
 }

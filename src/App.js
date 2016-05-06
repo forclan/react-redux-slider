@@ -17,19 +17,37 @@ function mapDispatchToProps(dispatch) {
 }
 
 class App extends Component {
+  componentDidMount() {
+    // console.log('props autoSwitch in MOunt', this.props.autoSwitch);
+    // console.log('add mounted');
+      setInterval(() => {
+      // console.log('interval');
+      console.log(Date.now());
+      this.props.autoSwitch();
+    }, 2000);
+  }
   render() {
-    let {url, imgClick, imgNext, imgPrevious} = this.props;
+    // console.log('app render');
+    let {url, imgClick, imgNext, imgPrevious, autoSwitch} = this.props;
+    // this.props.autoSwitch = autoSwitch;
+    console.log('props autoSwitch', this.props.autoSwitch);
     return (
       <div>
         <ul>
           <SliderImg src={url} width={400} height={300} onClick={imgClick} />
         </ul>
-        <button onClick={imgPrevious}>preImg
+        <button onClick={imgPrevious}>
+          preImg
         </button>
-        <button onClick={imgNext}>nextImg
+        <button onClick={imgNext}>
+          nextImg
         </button>
       </div>
     );
   }
+}
+App.defaultProps = {
+  intervalHandle: null,
+  autoSwitch: null
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);
