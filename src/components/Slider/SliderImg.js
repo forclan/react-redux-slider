@@ -2,7 +2,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import style from '../../css/style.css';
+import style from '../../css/style.scss';
 
 export default class SliderImg extends Component {
   render() {
@@ -30,7 +30,7 @@ export default class SliderImg extends Component {
       onClick = {
         clickImg
       }
-      /> < /li>
+      /> < /li >
     );
   }
 };

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import SliderImg from './components/Slider/SliderImg';
+import SliderSelect from './components/Slider/SliderSelect';
 import { reducer } from './reducers/reducer';
 import { createStore, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -9,7 +10,9 @@ import * as Actions from './actions/sliderActions';
 function mapStateToProps(state) {
   let urlFromState = state.urls[state.index].url;
   return {
-    url: urlFromState ? urlFromState : ''
+    url: urlFromState ? urlFromState : '',
+    urlLength: state.urls.length,
+    currentIdx: state.index,
   }
 }
 
@@ -26,8 +29,10 @@ class App extends Component {
     }, this.props.switchTime_s * 1000);
   }
   render() {
-    // console.log('app render');
-    let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s} = this.props;
+    console.log('app render');
+    let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s, 
+      selectDot, currentIdx, urlLength} = this.props;
+    console.log('receive currentIdx', currentIdx);  
     return (
       <div>
         <ul>
@@ -39,6 +44,7 @@ class App extends Component {
         <button onClick={imgNext}>
           nextImg
         </button>
+        <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} />
       </div>
     );
   }
@@ -57,6 +63,9 @@ App.propTypes = {
   imgNext: PropTypes.func.isRequired,
   imgPrevious: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
+  selectDot: PropTypes.func.isRequired,
+  currentIdx: PropTypes.number.isRequired,
+  urlLength: PropTypes.number.isRequired,
   switchTime_s: PropTypes.number,
 }
 

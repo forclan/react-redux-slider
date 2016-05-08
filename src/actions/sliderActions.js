@@ -2,6 +2,7 @@ export const IMG_CLICK = 'IMG_CLICK';
 export const IMG_NEXT = 'IMG_NEXT';
 export const IMG_PREVIOUS = 'IMG_PREVIOUS';
 export const AUTO_SWITCH = 'AUTO_SWITCH';
+export const SELECTET_SLIDER = 'SELECTED_SLIDER';
 
 export const imgClick = (index) =>  {
   console.log('imgClicked');
@@ -29,4 +30,12 @@ export const autoSwitch = () => {
   return {
     type: AUTO_SWITCH
   } 
+}
+
+export const selectDot = (idx) => {
+  console.log('selectDot', idx);
+  return {
+    type: SELECTET_SLIDER,
+    index: idx
+  }
 }
