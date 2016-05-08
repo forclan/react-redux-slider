@@ -27,22 +27,17 @@ class App extends Component {
   }
   
   componentDidMount() {
-    console.log('componentDidMount');
+    // console.log('componentDidMount');
     setInterval(() => {
-    // console.log('interval');
-    // console.log(Date.now());
       if (this.props.autoSwitchFlag) {
         this.props.autoSwitch(); 
       }
     }, this.props.switchTime_s * 1000);
   }
   render() {
-    console.log('app render');
     let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s, 
       autoSwitchFlag,
       selectDot, currentIdx, urlLength} = this.props;
-    console.log('switchTime_s', switchTime_s);    
-    console.log('autoSwitchFlag', autoSwitchFlag);
     return (
       <div>
         <ul>
