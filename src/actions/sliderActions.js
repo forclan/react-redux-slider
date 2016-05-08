@@ -3,6 +3,8 @@ export const IMG_NEXT = 'IMG_NEXT';
 export const IMG_PREVIOUS = 'IMG_PREVIOUS';
 export const AUTO_SWITCH = 'AUTO_SWITCH';
 export const SELECTET_SLIDER = 'SELECTED_SLIDER';
+export const SET_SWITCH_FLAG = 'SET_SWITCH_FLAG';
+
 
 export const imgClick = (index) =>  {
   console.log('imgClicked');
@@ -39,3 +41,17 @@ export const selectDot = (idx) => {
     index: idx
   }
 }
+
+export const setSwicthEnable = (enableSwitch) => {
+  return {
+    type: SET_SWITCH_FLAG,
+    switchFlag: enableSwitch,
+  }
+}
+
+export const setSwicthTime = (time) =>  {
+  return {
+    type: SET_SWITCH_TIME,
+    switchTime: time,
+  }
+};

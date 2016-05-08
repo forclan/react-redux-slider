@@ -16,7 +16,7 @@ store.subscribe(()=>{
 
 render(
   <Provider store={store}>
-    <App switchTime_s={2} />
+    <App switchTime_s={2}/>
   </Provider>
   , rootElemet
 )

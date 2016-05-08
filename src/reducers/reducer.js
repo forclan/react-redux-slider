@@ -4,10 +4,35 @@ import {
   IMG_PREVIOUS,
   AUTO_SWITCH,
   SELECTET_SLIDER,
+  SET_SWITCH_FLAG,
+  SET_SWITCH_TIME,
 } from '../actions/sliderActions';
 import urls from './urls';
+import {
+  combineReducers
+} from 'redux';
 
-export default function imgReduce(state = {
+function switchReducer(state = {
+  switchFlag: true,
+  switchTime: 1
+}, action) {
+  switch (action.type) {
+    case SET_SWITCH_FLAG:
+      return {
+        switchFlag: action.switchFlag,
+        switchTime: state.switchTime
+      };
+    case SET_SWITCH_TIME:
+      return {
+        switchFlag: state.switchFlag,
+        switchTime: action.switchTime,
+      }
+    default:
+      return state;
+  }
+}
+
+function imgReducer(state = {
   urls: urls,
   index: 0,
   width: 400,
@@ -23,7 +48,6 @@ export default function imgReduce(state = {
         width: state.width,
         height: state.height,
       };
-      break;
     case IMG_NEXT:
       return {
         urls: state.urls,
@@ -32,7 +56,6 @@ export default function imgReduce(state = {
         height: state.height,
         // index: state.index + 1
       }
-      break;
     case IMG_PREVIOUS:
       let nextIdx = state.index - 1;
       return {
@@ -41,7 +64,6 @@ export default function imgReduce(state = {
         width: state.width,
         height: state.height,
       }
-      break;
     case AUTO_SWITCH:
       return {
         urls: state.urls,
@@ -49,7 +71,6 @@ export default function imgReduce(state = {
         width: state.width,
         height: state.height,
       }
-      break;
     case SELECTET_SLIDER:
       return {
         urls: state.urls,
@@ -57,8 +78,13 @@ export default function imgReduce(state = {
         width: state.width,
         height: state.height,
       }
-      break;
     default:
       return state;
   }
 }
+
+
+export default combineReducers({
+  imgReducer,
+  switchReducer,
+})

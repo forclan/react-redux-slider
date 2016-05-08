@@ -8,11 +8,12 @@ import * as Actions from './actions/sliderActions';
 // import style from './css/style';
 
 function mapStateToProps(state) {
-  let urlFromState = state.urls[state.index].url;
+  var imgState = state.imgReducer;
+  let urlFromState = imgState.urls[imgState.index].url;
   return {
     url: urlFromState ? urlFromState : '',
-    urlLength: state.urls.length,
-    currentIdx: state.index,
+    urlLength: imgState.urls.length,
+    currentIdx: imgState.index,
   }
 }
 
@@ -21,18 +22,27 @@ function mapDispatchToProps(dispatch) {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
   componentDidMount() {
-      setInterval(() => {
-      // console.log('interval');
-      // console.log(Date.now());
-      this.props.autoSwitch();
+    console.log('componentDidMount');
+    setInterval(() => {
+    // console.log('interval');
+    // console.log(Date.now());
+      if (this.props.autoSwitchFlag) {
+        this.props.autoSwitch(); 
+      }
     }, this.props.switchTime_s * 1000);
   }
   render() {
     console.log('app render');
     let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s, 
+      autoSwitchFlag,
       selectDot, currentIdx, urlLength} = this.props;
-    console.log('receive currentIdx', currentIdx);  
+    console.log('switchTime_s', switchTime_s);    
+    console.log('autoSwitchFlag', autoSwitchFlag);
     return (
       <div>
         <ul>
@@ -54,6 +64,7 @@ class App extends Component {
 App.defaultProps = {
   intervalHandle: null,
   autoSwitch: null,
+  autoSwitchFlag: true,
   switchTime_s: 1,
 }
 
@@ -67,6 +78,7 @@ App.propTypes = {
   currentIdx: PropTypes.number.isRequired,
   urlLength: PropTypes.number.isRequired,
   switchTime_s: PropTypes.number,
+  autoSwitchFlag: PropTypes.bool,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
