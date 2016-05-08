@@ -2,6 +2,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
+import style from '../../css/style.css';
 
 export default class SliderImg extends Component {
   render() {
@@ -41,4 +42,4 @@ SliderImg.PropTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   alt: PropTypes.string,
-}
+};

@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import SliderImg from './components/Slider/SliderImg';
 import { reducer } from './reducers/reducer';
 import { createStore, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from './actions/sliderActions';
+// import style from './css/style';
 
 function mapStateToProps(state) {
   let urlFromState = state.urls[state.index].url;
@@ -22,13 +23,11 @@ class App extends Component {
       // console.log('interval');
       // console.log(Date.now());
       this.props.autoSwitch();
-    }, 2000);
+    }, this.props.switchTime_s * 1000);
   }
   render() {
     // console.log('app render');
-    let {url, imgClick, imgNext, imgPrevious, autoSwitch} = this.props;
-    // this.props.autoSwitch = autoSwitch;
-    // console.log('props autoSwitch', this.props.autoSwitch);
+    let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s} = this.props;
     return (
       <div>
         <ul>
@@ -44,8 +43,21 @@ class App extends Component {
     );
   }
 }
+
+// define default properity
 App.defaultProps = {
   intervalHandle: null,
-  autoSwitch: null
+  autoSwitch: null,
+  switchTime_s: 1,
 }
+
+App.propTypes = {
+  autoSwitch: PropTypes.func.isRequired,
+  imgClick: PropTypes.func.isRequired,
+  imgNext: PropTypes.func.isRequired,
+  imgPrevious: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  switchTime_s: PropTypes.number,
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
