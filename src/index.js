@@ -21,7 +21,7 @@ let rootElemet = document.getElementById('root');
 
 render(
   <Provider store={store}>
-    <App switchTime_s={2}/>
+    <App switchTime_s={10}/>
   </Provider>
   , rootElemet
 )
