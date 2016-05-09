@@ -17,43 +17,29 @@ export default class SliderImg extends Component {
       alt,
     } = this.props;
 
-    return ( < li >
-      < img src ={
-        imgSrc
-      }
-      width = {
-        width
-      }
-      alt = {
-        alt
-      }
-      height = {
-        height
-      }
-      className = {
-        className
-      }
-      onClick = {
-        clickImg
-      }
-      onMouseOver = {
-        imgMouseOver
-      }
-      onMouseLeave = {
-        imgMouseLeave
-      }
-      /> < /li >
+    return (
+      <li>
+        <img
+          src={imgSrc}
+          width={width}
+          alt={alt}
+          height={height}
+          className={className}
+          onClick={clickImg}
+          onMouseOver={imgMouseOver}
+          onMouseLeave={imgMouseLeave}
+        />
+      </li >
     );
   }
 };
 
-SliderImg.defaultProps = {
-};
+SliderImg.defaultProps = {};
 
 SliderImg.PropTypes = {
   imgSrc: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
-  heigth: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   alt: PropTypes.string,

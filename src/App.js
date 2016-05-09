@@ -68,13 +68,13 @@ class App extends Component {
   }
 }
 
-// define default properity
+// define default property
 App.defaultProps = {
   intervalHandle: null,
   autoSwitch: null,
   autoSwitchFlag: true,
   switchTime_s: 1,
-}
+};
 
 App.propTypes = {
   autoSwitch: PropTypes.func.isRequired,
@@ -87,6 +87,6 @@ App.propTypes = {
   urlLength: PropTypes.number.isRequired,
   switchTime_s: PropTypes.number,
   autoSwitchFlag: PropTypes.bool,
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -18,29 +18,26 @@ export default class SliderSelect extends Component {
     });
     let dispDots = range.map((x, i) => {
       let dotClass = i === currentIdx ? 'slider-dot-selected' : 'slider-dot';
-      return ( < span className = {
-          dotClass
-        }
-        onClick = {
-          () => {
-            selectDot(i);
+      return (
+        <span
+          className={dotClass}
+          onClick={
+            () => {
+              selectDot(i);
+            }
           }
-        }
-        onMouseOver = {
-            mouseOver
-        }
-        onMouseLeave = {
-          mouseLeave
-        } 
-        key = {
-          'dot' + i
-        } >
-        < /span>
+          onMouseOver={mouseOver}
+          onMouseLeave={mouseLeave}
+          key={'dot' + i}
+        >
+        </span>
       )
-    })
-    return ( < div className = "slider-dots-wrap" > {
-      dispDots
-    } < /div>);
+    });
+    return (
+      <div className="slider-dots-wrap"> {
+        dispDots
+      }
+      </div>);
   }
 };
 
@@ -48,7 +45,7 @@ SliderSelect.defaultProps = {
   imgNum: 0,
   selectDot: null,
   currentIdx: 0
-}
+};
 
 SliderSelect.PropTypes = {
   imgNum: PropTypes.number.isRequired,
@@ -56,4 +53,4 @@ SliderSelect.PropTypes = {
   currentIdx: PropTypes.number.isRequired,
   mouseOver: PropTypes.func,
   mouseLeave: PropTypes.func,
-}
+};
