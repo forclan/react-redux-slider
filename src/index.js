@@ -5,8 +5,6 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from './reducers/reducer';
 import middleWare from './middleWare/middleWare';
-// let finalCreateStore = applyMiddleware(middleWare)(createStore);
-// let store = finalCreateStore(reducer);
 
 let store = createStore(reducer, compose(
   applyMiddleware(middleWare),
@@ -14,10 +12,6 @@ let store = createStore(reducer, compose(
 ))
 
 let rootElemet = document.getElementById('root');
-// console.log('state init', store.getState());
-// store.subscribe(()=>{
-  // console.log('state is', store.getState());
-// })
 
 render(
   <Provider store={store}>

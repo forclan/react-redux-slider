@@ -39,10 +39,12 @@ class App extends Component {
     let {url, imgClick, imgMouseOver, imgMouseLeave, imgNext, imgPrevious, autoSwitch, switchTime_s, 
       autoSwitchFlag, setSwicthTime,
       selectDot, currentIdx, urlLength} = this.props;
-    // setSwicthTime
+      
+    // setSwicthTime according to APP config
     if (switchTime_s) {
       setSwicthTime(switchTime_s);
     }
+    
     return (
       <div>
         <ul>
@@ -50,12 +52,15 @@ class App extends Component {
             imgMouseLeave={imgMouseLeave}
           />
         </ul>
+        
         <button onClick={imgPrevious}>
           preImg
         </button>
+        
         <button onClick={imgNext}>
           nextImg
         </button>
+        
         <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} />
       </div>
     );
