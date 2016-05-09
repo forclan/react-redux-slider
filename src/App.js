@@ -60,8 +60,9 @@ class App extends Component {
         <button onClick={imgNext}>
           nextImg
         </button>
-        
-        <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} />
+       
+        <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} mouseOver={imgMouseOver}
+        mouseLeave={imgMouseLeave}/>
       </div>
     );
   }
