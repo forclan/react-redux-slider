@@ -7,7 +7,7 @@ import style from '../../css/style.scss';
 export default class SliderImg extends Component {
   render() {
     let {
-      src,
+      imgSrc,
       width,
       height,
       className,
@@ -16,12 +16,16 @@ export default class SliderImg extends Component {
       imgMouseLeave,
       alt,
     } = this.props;
+
     return ( < li >
-      < img src = {
-        src
+      < img src ={
+        imgSrc
       }
       width = {
         width
+      }
+      alt = {
+        alt
       }
       height = {
         height
@@ -44,13 +48,10 @@ export default class SliderImg extends Component {
 };
 
 SliderImg.defaultProps = {
-  onClick: null,
-  mouseLeave: null,
-  mouseOver: null,
 };
 
 SliderImg.PropTypes = {
-  src: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   heigth: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,

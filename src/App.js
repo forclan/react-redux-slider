@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div>
         <ul>
-          <SliderImg src={url} width={400} height={300} onClick={imgClick} imgMouseOver={imgMouseOver}
+          <SliderImg imgSrc={url} width={400} height={300} onClick={imgClick} imgMouseOver={imgMouseOver}
             imgMouseLeave={imgMouseLeave}
           />
         </ul>
