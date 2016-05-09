@@ -4,7 +4,9 @@ export const IMG_PREVIOUS = 'IMG_PREVIOUS';
 export const AUTO_SWITCH = 'AUTO_SWITCH';
 export const SELECTET_SLIDER = 'SELECTED_SLIDER';
 export const SET_SWITCH_FLAG = 'SET_SWITCH_FLAG';
-
+export const SET_SWITCH_TIME = 'SET_SWITCH_TIME';
+export const IMG_MOUSE_OVER = 'IMG_MOUSE_OVER';
+export const IMG_MOUSE_LEAVE = 'IMG_MOUSE_LEAVE';
 
 export const imgClick = (index) =>  {
   return {
@@ -12,6 +14,20 @@ export const imgClick = (index) =>  {
     index: index
   }
 };
+
+export const imgMouseOver = () =>  {
+  return {
+      type: IMG_MOUSE_OVER,
+  }
+};
+
+export const imgMouseLeave = () =>  {
+  return {
+    type: IMG_MOUSE_LEAVE,
+  }
+};
+
+
 
 export const imgNext = () => {
   return {

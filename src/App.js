@@ -14,6 +14,7 @@ function mapStateToProps(state) {
     url: urlFromState ? urlFromState : '',
     urlLength: imgState.urls.length,
     currentIdx: imgState.index,
+    autoSwitchFlag: state.switchReducer.switchFlag,
   }
 }
 
@@ -35,13 +36,19 @@ class App extends Component {
     }, this.props.switchTime_s * 1000);
   }
   render() {
-    let {url, imgClick, imgNext, imgPrevious, autoSwitch, switchTime_s, 
-      autoSwitchFlag,
+    let {url, imgClick, imgMouseOver, imgMouseLeave, imgNext, imgPrevious, autoSwitch, switchTime_s, 
+      autoSwitchFlag, setSwicthTime,
       selectDot, currentIdx, urlLength} = this.props;
+    // setSwicthTime
+    if (switchTime_s) {
+      setSwicthTime(switchTime_s);
+    }
     return (
       <div>
         <ul>
-          <SliderImg src={url} width={400} height={300} onClick={imgClick} />
+          <SliderImg src={url} width={400} height={300} onClick={imgClick} imgMouseOver={imgMouseOver}
+            imgMouseLeave={imgMouseLeave}
+          />
         </ul>
         <button onClick={imgPrevious}>
           preImg

@@ -1,5 +1,7 @@
 import {
   IMG_CLICK,
+  IMG_MOUSE_OVER,
+  IMG_MOUSE_LEAVE,
   IMG_NEXT,
   IMG_PREVIOUS,
   AUTO_SWITCH,
@@ -26,6 +28,16 @@ function switchReducer(state = {
       return {
         switchFlag: state.switchFlag,
         switchTime: action.switchTime,
+      }
+    case IMG_MOUSE_OVER:
+      return {
+        switchFlag: false,
+        switchTime: state.switchTime,
+      }
+    case IMG_MOUSE_LEAVE:
+      return {
+        switchFlag: true,
+        switchTime: state.switchTime,
       }
     default:
       return state;

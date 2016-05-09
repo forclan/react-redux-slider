@@ -12,7 +12,9 @@ export default class SliderImg extends Component {
       height,
       className,
       clickImg,
-      alt
+      imgMouseOver,
+      imgMouseLeave,
+      alt,
     } = this.props;
     return ( < li >
       < img src = {
@@ -30,9 +32,21 @@ export default class SliderImg extends Component {
       onClick = {
         clickImg
       }
+      onMouseOver = {
+        imgMouseOver
+      }
+      onMouseLeave = {
+        imgMouseLeave
+      }
       /> < /li >
     );
   }
+};
+
+SliderImg.defaultProps = {
+  onClick: null,
+  mouseLeave: null,
+  mouseOver: null,
 };
 
 SliderImg.PropTypes = {
@@ -42,4 +56,6 @@ SliderImg.PropTypes = {
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   alt: PropTypes.string,
+  mouseOver: PropTypes.func,
+  mouseLeave: PropTypes.func,
 };
