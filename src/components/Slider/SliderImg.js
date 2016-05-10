@@ -3,6 +3,7 @@ import React, {
   PropTypes
 } from 'react';
 import style from '../../css/style.scss';
+import animate from '../../css/animation.scss'
 
 export default class SliderImg extends Component {
   render() {
