@@ -49,7 +49,7 @@ export const autoSwitch = () => {
 
 export const selectDot = (idx) => {
   return {
-    type: SELECTET_SLIDER,
+    type: SELECTED_SLIDER,
     index: idx
   }
 };
