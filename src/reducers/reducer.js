@@ -5,7 +5,7 @@ import {
   IMG_NEXT,
   IMG_PREVIOUS,
   AUTO_SWITCH,
-  SELECTET_SLIDER,
+  SELECTED_SLIDER,
   SET_SWITCH_FLAG,
   SET_SWITCH_TIME,
 } from '../actions/sliderActions';
@@ -33,23 +33,24 @@ function switchReducer(state = {
       return {
         switchFlag: false,
         switchTime: state.switchTime,
-      }
+      };
     case IMG_MOUSE_LEAVE:
       return {
         switchFlag: true,
         switchTime: state.switchTime,
-      }
+      };
     default:
       return state;
   }
 }
 
-function imgReducer(state = {
-  urls: urls,
-  index: 0,
-  width: 400,
-  height: 400
-}, action) {
+function imgReducer(
+  state = {
+    urls: urls,
+    index: 0,
+    width: 400,
+    height: 400
+  }, action) {
   let len = state.urls.length;
   switch (action.type) {
     case IMG_CLICK:
@@ -65,8 +66,7 @@ function imgReducer(state = {
         index: state.index + 1 > len - 1 ? 0 : state.index + 1,
         width: state.width,
         height: state.height,
-        // index: state.index + 1
-      }
+      };
     case IMG_PREVIOUS:
       let nextIdx = state.index - 1;
       return {
@@ -74,21 +74,21 @@ function imgReducer(state = {
         index: nextIdx < 0 ? len - 1 : nextIdx,
         width: state.width,
         height: state.height,
-      }
+      };
     case AUTO_SWITCH:
       return {
         urls: state.urls,
         index: state.index + 1 > len - 1 ? 0 : state.index + 1,
         width: state.width,
         height: state.height,
-      }
-    case SELECTET_SLIDER:
+      };
+    case SELECTED_SLIDER:
       return {
         urls: state.urls,
         index: action.index,
         width: state.width,
         height: state.height,
-      }
+      };
     default:
       return state;
   }
