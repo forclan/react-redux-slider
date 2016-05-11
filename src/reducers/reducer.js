@@ -8,6 +8,8 @@ import {
   SELECTED_SLIDER,
   SET_SWITCH_FLAG,
   SET_SWITCH_TIME,
+  SET_DISP_WIDTH,
+  SET_DISP_HEIGHT,
 } from '../actions/sliderActions';
 import urls from './urls';
 import {
@@ -94,8 +96,25 @@ function imgReducer(
   }
 }
 
+function imgSizeReducer(state = {width: 400, height: 300}, action) {
+   switch (action.type) {
+     case SET_DISP_WIDTH: 
+       return {
+         width: action.width,
+         height: state.height,
+       }
+     case SET_DISP_HEIGHT:
+       return {
+         width: state.width,
+         height: action.height,
+       }
+     default:
+       return state;
+   }
+}
 
 export default combineReducers({
   imgReducer,
   switchReducer,
+  imgSizeReducer,
 })

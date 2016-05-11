@@ -19,18 +19,16 @@ export default class SliderImg extends Component {
     } = this.props;
 
     return (
-      <li>
-        <img
-          src={imgSrc}
-          width={width}
-          alt={alt}
-          height={height}
-          className={className}
-          onClick={clickImg}
-          onMouseOver={imgMouseOver}
-          onMouseLeave={imgMouseLeave}
-        />
-      </li >
+      <img
+        src={imgSrc}
+        width={width}
+        alt={alt}
+        height={height}
+        className={className}
+        onClick={clickImg}
+        onMouseOver={imgMouseOver}
+        onMouseLeave={imgMouseLeave}
+      />
     );
   }
 };

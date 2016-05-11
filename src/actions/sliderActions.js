@@ -7,6 +7,9 @@ export const SET_SWITCH_FLAG = 'SET_SWITCH_FLAG';
 export const SET_SWITCH_TIME = 'SET_SWITCH_TIME';
 export const IMG_MOUSE_OVER = 'IMG_MOUSE_OVER';
 export const IMG_MOUSE_LEAVE = 'IMG_MOUSE_LEAVE';
+export const SET_DISP_WIDTH = 'SET_DISP_WIDTH';
+export const SET_DISP_HEIGHT = 'SET_DISP_HEIGHT';
+
 
 export const imgClick = (index) =>  {
   return {
@@ -67,3 +70,18 @@ export const setSwicthTime = (time) =>  {
     switchTime: time,
   }
 };
+
+export const setDispWidth = (width) => {
+  return {
+    type: SET_DISP_WIDTH,
+    width: width,
+  }
+}
+
+
+export const setDispHeight = (height) => {
+  return {
+    type: SET_DISP_HEIGHT,
+    height: height,
+  }
+}
