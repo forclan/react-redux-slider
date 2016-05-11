@@ -64,16 +64,10 @@ class App extends Component {
           />
         </div>
         
-        <div className="slider-previous">
-          <button onClick={imgPrevious} >
-            preImg
-          </button>
+        <div className="slider-previous" onClick={imgPrevious}>
         </div>
         
-        <div className="slider-next">
-          <button onClick={imgNext}>
-            nextImg
-          </button>
+        <div className="slider-next" onClick={imgNext}>
         </div>
        
         <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} mouseOver={imgMouseOver}
