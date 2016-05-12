@@ -18,7 +18,7 @@ import reducer from './reducers/reducer';
 import middleWare from './middleWare/middleWare';
 import urls from './urls';
 
-class Slider extends Component {
+export default class Slider extends Component {
   render() {
     let {urls, switchFlag, switchTime, width, height} = this.props;
     let props = this.props;
@@ -73,5 +73,5 @@ Slider.defaultProps = {
 let rootElemet = document.getElementById('root');
 
 render( 
-  <Slider urls={urls} width={width} height={height}/>, rootElemet
+  <Slider urls={urls} />, rootElemet
 )
