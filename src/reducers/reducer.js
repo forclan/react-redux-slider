@@ -11,7 +11,7 @@ import {
   SET_DISP_WIDTH,
   SET_DISP_HEIGHT,
 } from '../actions/sliderActions';
-import urls from './urls';
+// import urls from './urls';
 import {
   combineReducers
 } from 'redux';
@@ -48,7 +48,7 @@ function switchReducer(state = {
 
 function imgReducer(
   state = {
-    urls: urls,
+    urls: [],
     index: 0,
     width: 400,
     height: 400
