@@ -65,14 +65,13 @@ Slider.defaultProps = {
     height: 400,
   },
   imgSizeReducer: {
-    width: 400,
-    height: 300,
+    width: window.innerWidth,
+    height: window.innerHeight,
   }
 }
-
 
 let rootElemet = document.getElementById('root');
 
 render( 
-  <Slider urls={urls}/>, rootElemet
+  <Slider urls={urls} width={width} height={height}/>, rootElemet
 )
