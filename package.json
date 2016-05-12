@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src"
-    
   },
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/forclan/react-redux-slider"
@@ -14,13 +14,10 @@
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate",
-    "hot",
-    "reload",
-    "edit",
     "webpack",
     "slider",
-    "redux"
+    "redux",
+    "react-component"
   ],
   "author": "forclan (http://github.com/forclan)",
   "license": "MIT",
