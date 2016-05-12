@@ -59,8 +59,8 @@ class App extends Component {
           <SliderImg imgSrc={url} onClick={imgClick} imgMouseOver={imgMouseOver}
             width={width}
             height={height}
-            className={'slider-item'}
             imgMouseLeave={imgMouseLeave}
+            className={'slider-item'}
           />
         </div>
         
