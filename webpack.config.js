@@ -9,8 +9,10 @@ module.exports = {
     './src/slider'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'lib'),
+    filename: 'slider.js',
+    library: 'shared-components',
+    libraryTarget: 'umd',
     publicPath: '/static/'
   },
   plugins: [
