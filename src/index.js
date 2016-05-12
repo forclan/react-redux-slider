@@ -16,11 +16,11 @@ import {
 } from 'react-redux';
 import reducer from './reducers/reducer';
 import middleWare from './middleWare/middleWare';
-import urls from './reducers/urls';
+import urls from './urls';
 let store = createStore(reducer, {
   switchReducer: {
     switchFlag: true,
-    switchTime: 1,
+    switchTime: 3,
   },
   imgReducer: {
     urls: urls,
@@ -43,7 +43,7 @@ render(
   <Provider store = {
     store
   }>
-    <App switchTime_s = {
+    <App switchTime = {
       3
     }/>
   </Provider>, rootElemet

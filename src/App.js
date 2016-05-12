@@ -35,17 +35,17 @@ class App extends Component {
       if (this.props.autoSwitchFlag) {
         this.props.autoSwitch(); 
       }
-    }, this.props.switchTime_s * 1000);
+    }, this.props.switchTime * 1000);
   }
   render() {
-    let {url, imgClick, imgMouseOver, imgMouseLeave, imgNext, imgPrevious, autoSwitch, switchTime_s, 
+    let {url, imgClick, imgMouseOver, imgMouseLeave, imgNext, imgPrevious, autoSwitch, switchTime, 
       autoSwitchFlag, setSwicthTime,
       width, height,
       selectDot, currentIdx, urlLength} = this.props;
       
     // setSwicthTime according to APP config
-    if (switchTime_s) {
-      setSwicthTime(switchTime_s);
+    if (switchTime) {
+      setSwicthTime(switchTime);
     }
     
     let sliderStyle = {
@@ -64,10 +64,10 @@ class App extends Component {
           />
         </div>
         
-        <div className="slider-previous" onClick={imgPrevious}>
+        <div className="slider-previous" onClick={imgPrevious} onMouseOver={imgMouseOver} onMouseLeave={imgMouseLeave}>
         </div>
         
-        <div className="slider-next" onClick={imgNext}>
+        <div className="slider-next" onClick={imgNext} onMouseOver={imgMouseOver} onMouseLeave={imgMouseLeave}>
         </div>
        
         <SliderSelect selectDot={selectDot} currentIdx={currentIdx} imgNum={urlLength} mouseOver={imgMouseOver}
@@ -82,7 +82,7 @@ App.defaultProps = {
   intervalHandle: null,
   autoSwitch: null,
   autoSwitchFlag: true,
-  switchTime_s: 1,
+  switchTime: 1,
 };
 
 App.propTypes = {
@@ -94,7 +94,7 @@ App.propTypes = {
   selectDot: PropTypes.func.isRequired,
   currentIdx: PropTypes.number.isRequired,
   urlLength: PropTypes.number.isRequired,
-  switchTime_s: PropTypes.number,
+  switchTime: PropTypes.number,
   autoSwitchFlag: PropTypes.bool,
 };
 
