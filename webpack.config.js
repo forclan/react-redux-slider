@@ -6,11 +6,11 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/slider'
+    './demo/example'
   ],
   output: {
     path: path.join(__dirname, 'lib'),
-    filename: 'slider.js',
+    filename: 'Slider.js',
     library: 'shared-components',
     libraryTarget: 'umd',
     publicPath: '/static/'
@@ -22,7 +22,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
+      include: [path.join(__dirname, 'src'), path.join(__dirname, 'demo')]
     }, {
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass'],

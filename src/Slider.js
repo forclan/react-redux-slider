@@ -2,9 +2,6 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import {
-  render
-} from 'react-dom';
 import App from './App';
 import {
   createStore,
@@ -16,7 +13,6 @@ import {
 } from 'react-redux';
 import reducer from './reducers/reducer';
 import middleWare from './middleWare/middleWare';
-import urls from './urls';
 
 export default class Slider extends Component {
   render() {
@@ -69,9 +65,3 @@ Slider.defaultProps = {
     height: window.innerHeight,
   }
 }
-
-let rootElemet = document.getElementById('root');
-
-render( 
-  <Slider urls={urls} />, rootElemet
-)
