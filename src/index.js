@@ -17,13 +17,49 @@ import {
 import reducer from './reducers/reducer';
 import middleWare from './middleWare/middleWare';
 import urls from './urls';
-let store = createStore(reducer, {
+
+class Slider extends Component {
+  render() {
+    let {urls, switchFlag, switchTime, width, height} = this.props;
+    let props = this.props;
+    if (urls) {
+      props.imgReducer.urls = urls;
+    }
+    if (switchFlag) {
+      props.switchReducer.switchFlag = switchFlag;
+    }
+    if (switchTime) {
+      props.switchReducer.switchTime = switchTime;
+    }
+    if (width) {
+      props.imgSizeReducer.width = width;
+    }
+    if (height) {
+      props.imgSizeReducer.height = height;
+    }
+    let store = createStore(reducer, {
+                    switchReducer: this.props.switchReducer,
+                    imgReducer: this.props.imgReducer,
+                    imgSizeReducer: this.props.imgSizeReducer,
+                  }, compose(
+                       applyMiddleware(middleWare),
+                       window.devToolsExtension ? window.devToolsExtension() : f => f
+                ));
+
+    return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  }
+}
+Slider.defaultProps = {
   switchReducer: {
     switchFlag: true,
     switchTime: 3,
   },
   imgReducer: {
-    urls: urls,
+    urls: [],
     index: 0,
     width: 400,
     height: 400,
@@ -32,19 +68,11 @@ let store = createStore(reducer, {
     width: 400,
     height: 300,
   }
-}, compose(
-  applyMiddleware(middleWare),
-  window.devToolsExtension ? window.devToolsExtension() : f => f
-));
+}
+
 
 let rootElemet = document.getElementById('root');
 
 render( 
-  <Provider store = {
-    store
-  }>
-    <App switchTime = {
-      3
-    }/>
-  </Provider>, rootElemet
+  <Slider urls={urls}/>, rootElemet
 )

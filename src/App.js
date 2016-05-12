@@ -14,6 +14,7 @@ function mapStateToProps(state) {
     url: urlFromState ? urlFromState : '',
     urlLength: imgState.urls.length,
     currentIdx: imgState.index,
+    switchTime: state.switchReducer.switchTime,
     autoSwitchFlag: state.switchReducer.switchFlag,
     width: state.imgSizeReducer.width,
     height: state.imgSizeReducer.height,
