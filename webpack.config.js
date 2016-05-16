@@ -1,14 +1,34 @@
 var path = require('path');
 var webpack = require('webpack');
 
+var isProduction = (function() {
+  return process.env.NODE_ENV === 'production';
+})(), 
+    entry = './src/Slider.js',
+    plugins = [],
+    devtool = null,
+    externals = {
+      'react': 'react',
+      'react-dom': 'react-dom',
+      'redux': 'redux',
+      'react-redux': 'react-redux'
+    };
+console.log(isProduction);    
+if (isProduction) {
+  entry =  [
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
+    './demo/example.js'
+  ]
+  externals = [];
+  devtool = 'eval';
+  plugins = [new webpack.HotModuleReplacementPlugin()];
+}
+
 module.exports = {
-  devtool: 'eval',
+  devtool: isProduction ? 'eval' : null,
   entry: {
-    'Slider': [
-      'webpack-dev-server/client?http://localhost:3000',
-      'webpack/hot/only-dev-server',
-      './demo/example.js'
-    ],
+    Slider: entry
   },
   output: {
     path: path.join(__dirname, 'lib'),
@@ -17,9 +37,7 @@ module.exports = {
     libraryTarget: 'umd',
     publicPath: '/static/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: plugins,
   module: {
     loaders: [{
       test: /\.js$/,
@@ -33,11 +51,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.scss']
-  }
-  // externals: {
-  //   'react': 'react',
-  //   'react-dom': 'react-dom',
-  //   'redux': 'redux',
-  //   'react-redux': 'react-redux'
-  // }
+  },
+  externals: externals
 };
