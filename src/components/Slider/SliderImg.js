@@ -2,8 +2,8 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import style from '../../css/style.scss';
-import animate from '../../css/animation.scss'
+import style from '../../css/style';
+import animate from '../../css/animation'
 
 export default class SliderImg extends Component {
   render() {

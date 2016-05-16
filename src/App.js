@@ -5,7 +5,7 @@ import { reducer } from './reducers/reducer';
 import { createStore, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from './actions/sliderActions';
-import style from './css/style.scss';
+import style from './css/style';
 
 function mapStateToProps(state) {
   var imgState = state.imgReducer;

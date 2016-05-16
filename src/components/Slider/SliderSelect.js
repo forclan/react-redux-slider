@@ -2,7 +2,7 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import style from '../../css/style.scss';
+import style from '../../css/style';
 
 export default class SliderSelect extends Component {
   render() {

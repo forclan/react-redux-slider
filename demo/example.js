@@ -1,5 +1,5 @@
-import Slider from '../src/Slider';
 import React, { Component, PropTypes } from 'react';
+import Slider from '../src/Slider';
 import {
   render
 } from 'react-dom';

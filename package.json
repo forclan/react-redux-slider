@@ -1,12 +1,11 @@
 {
   "name": "react-redux-slider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "slider use react and redux",
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "compile": "babel -d lib/ src/",
-    "prepublish": "npm run compile"
+    "publish": "webpack -p"
   },
   "main": "./lib/Slider.js",
   "repository": {
