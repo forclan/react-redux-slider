@@ -3,14 +3,16 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
-    'webpack-dev-server/client?http://localhost:3000',
-    'webpack/hot/only-dev-server',
-    './demo/example'
-  ],
+  entry: {
+    'Slider': [
+      'webpack-dev-server/client?http://localhost:3000',
+      'webpack/hot/only-dev-server',
+      './demo/example.js'
+    ],
+  },
   output: {
     path: path.join(__dirname, 'lib'),
-    filename: 'Slider.js',
+    filename: '[name].js',
     library: 'shared-components',
     libraryTarget: 'umd',
     publicPath: '/static/'
@@ -28,5 +30,14 @@ module.exports = {
       loaders: ['style', 'css', 'sass'],
       include: path.join(__dirname, 'src')
     }]
+  },
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.scss']
   }
+  // externals: {
+  //   'react': 'react',
+  //   'react-dom': 'react-dom',
+  //   'redux': 'redux',
+  //   'react-redux': 'react-redux'
+  // }
 };
