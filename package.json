@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint src",
-    "publish": "webpack -p --colors --progress"
+    "prepublish": "webpack -p --colors --progress"
   },
   "main": "./lib/Slider.js",
   "repository": {
