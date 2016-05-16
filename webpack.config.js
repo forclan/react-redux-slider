@@ -3,8 +3,8 @@ var webpack = require('webpack');
 
 var isProduction = (function() {
   return process.env.NODE_ENV === 'production';
-})(), 
-    entry = './src/Slider.js',
+})(); 
+var entry = './src/Slider.js',
     plugins = [],
     devtool = null,
     externals = {
