@@ -22,3 +22,4 @@ render(
 ```
 
 ## demo
+http://forclan.github.io/React/Slider/
