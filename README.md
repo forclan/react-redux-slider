@@ -49,7 +49,7 @@ you can use it as
 ```
 will set Slider width & height to 400px
 * switchFlag: auto change image or not. defalut value is true(change image)
-* switchTime: change image every N seconds. default value is 2s
+* switchTime: change image every N seconds. default value is 3s
 
 
 ## TODO
